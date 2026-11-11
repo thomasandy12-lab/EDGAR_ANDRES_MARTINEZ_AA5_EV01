@@ -1,0 +1,74 @@
+{
+  "info": {
+    "_postman_id": "d38875e1-6e88-4f0a-b214-aa5ev0100001",
+    "name": "AA5-EV01 - Servicio de autenticación",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Estado del servicio",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "Registrar usuario",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuario\": \"aprendiz01\",\n  \"contrasena\": \"Clave123\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/registro"
+      }
+    },
+    {
+      "name": "Login correcto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuario\": \"aprendiz01\",\n  \"contrasena\": \"Clave123\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/login"
+      }
+    },
+    {
+      "name": "Login incorrecto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuario\": \"aprendiz01\",\n  \"contrasena\": \"ClaveIncorrecta\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/login"
+      }
+    }
+  ]
+}

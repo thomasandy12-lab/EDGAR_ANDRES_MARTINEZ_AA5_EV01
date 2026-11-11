@@ -1,0 +1,49 @@
+GA7-220501096-AA5-EV01 - DISEÑO DEL SERVICIO WEB
+
+Tecnología: Node.js + Express
+Tipo: API REST
+Formato de intercambio: JSON
+Puerto por defecto: 3000
+
+1. Verificación del servicio
+Método: GET
+Ruta: /api/health
+Respuesta esperada: HTTP 200
+
+2. Registro de usuario
+Método: POST
+Ruta: /api/auth/registro
+Cuerpo JSON:
+{
+  "usuario": "aprendiz01",
+  "contrasena": "Clave123"
+}
+
+Respuestas principales:
+201 - Usuario registrado correctamente.
+400 - Datos incompletos o no válidos.
+409 - Usuario ya registrado.
+
+3. Inicio de sesión
+Método: POST
+Ruta: /api/auth/login
+Cuerpo JSON:
+{
+  "usuario": "aprendiz01",
+  "contrasena": "Clave123"
+}
+
+Respuestas principales:
+200 - Autenticación satisfactoria.
+400 - Usuario o contraseña vacíos.
+401 - Error en la autenticación.
+
+Persistencia:
+Los usuarios se conservan en data/users.json. La contraseña se almacena mediante hash bcrypt y no en texto plano.
+
+Ejecución local:
+1. Abrir una terminal en la carpeta del proyecto.
+2. Ejecutar: npm.cmd install
+3. Ejecutar: npm.cmd start
+4. Importar en Postman el archivo postman/AA5_EV01_Autenticacion.postman_collection.json.
+5. Ejecutar primero "Registrar usuario" y luego las solicitudes de login.
